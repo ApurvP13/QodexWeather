@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { fetchWeather } from "../Api/weatherApi";
 import DashSkeleton from "../Components/dashSkeleton";
+import ErrorSkeleton from "../Components/ErrorSkeleton";
 
 const WeatherDetail = ({ icon, label, value }) => (
-  <div className="flex items-center">
+  <div className="flex flex-col md:flex-row items-center">
     <img
       className="size-12"
       src={`https://cdn.jsdelivr.net/gh/basmilius/weather-icons/production/fill/all/${icon}.svg`}
       alt={`${label} icon`}
     />
-    <span className="text-lg">
+    <span className="text-sm md:text-lg">
       {label}: {value}
     </span>
   </div>
@@ -86,7 +87,7 @@ const Dashboard = () => {
       </div>
 
       {loading && <DashSkeleton />}
-      {error && <p className="text-red-500">{error}</p>}
+      {!loading && error && <ErrorSkeleton />}
       {weatherData && !loading && (
         <div className="w-3/4 h-3/4 p-4 text-gray-50 text-center flex flex-col items-center justify-evenly rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
           {/* Current Weather Section */}
