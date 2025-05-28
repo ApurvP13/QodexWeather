@@ -105,7 +105,11 @@ src/
 
 ### Desktop View
 ![Desktop View](public/dashboard.png)
+### Loading Skeleton
 ![Skeleton](public/skeleton.png)
+### Error Skeleton
+![Skeleton](public/error.png)
+
 
 
 ## 🙏 Acknowledgments
